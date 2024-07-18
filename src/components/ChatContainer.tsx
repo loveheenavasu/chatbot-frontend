@@ -16,7 +16,7 @@ interface ChatContainerProps {
 
 const ChatContainer = ({ chatMessage }: ChatContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
- 
+  
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;

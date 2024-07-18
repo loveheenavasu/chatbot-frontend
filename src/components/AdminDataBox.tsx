@@ -38,7 +38,6 @@ const AdminDataBox = () => {
       );
       const updatedListingData = listingData.filter((item) => item._id !== id);
       setListingData(updatedListingData);
-      console.log("Item deleted successfully");
     } catch (error) {
       console.error("Error deleting item:", error);
     }

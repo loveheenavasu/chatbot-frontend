@@ -36,7 +36,7 @@ const LoginCard = () => {
     password: "",
   });
 
-  const isLoggedIn = localStorage.getItem("authToken");
+  // const isLoggedIn = localStorage.getItem("authToken");
 
   const authen = async (data: LoginData) => {
     try {
@@ -44,8 +44,10 @@ const LoginCard = () => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/login`,
         data
       );
-      const { socialToken } = response.data;
+      const { socialToken, _id } = response.data;
       localStorage.setItem("authToken", socialToken);
+      localStorage.setItem("userId", _id);
+
       router.replace("/adminpanel");
     } catch (error) {
       console.error(error, "Error during authentication");
@@ -54,7 +56,6 @@ const LoginCard = () => {
 
   const responseMessage = (response: ResponseMessage) => {
     if (response.credential != null) {
-      console.log();
       const USER_CREDENTIAL = jwtDecode(
         response.credential
       ) as CustomJwtPayload;

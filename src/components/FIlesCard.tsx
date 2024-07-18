@@ -13,7 +13,7 @@ import React, { useRef } from "react";
 import styles from "../app/adminpanel/admin.module.css";
 import { MdOutlineFileUpload } from "react-icons/md";
 
-const FIlesCard = () => {
+const   FIlesCard = () => {
   const fileInputRef: any = useRef(null);
 
   const handleUpload = (e: any) => {

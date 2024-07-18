@@ -18,15 +18,15 @@ import axiosInstance from "@/utils/axiosInstance";
 const AdminTextSpace = () => {
   const [inputData, setInputData] = useState<string>("");
   const [isEditId, setIsEditId] = useState<string>("");
-  const [dataId , setDataId] = useState<string>(" ")
-
-  console.log(inputData, "inputDasdfdsfta");
 
   const fetchData = async () => {
-    const response = await axiosInstance.get(`/user/text`);
-    console.log(response?.data, "resposdnseresponse");
-    setInputData(response?.data?.text);
-    setIsEditId(response?.data?._id);
+    const userId = localStorage.getItem("userId");
+    const response = await axiosInstance.get(`/user/text/${userId}`);
+    if (response.data) {
+      localStorage.setItem("documentId", response.data.documentId);
+      setInputData(response?.data?.text);
+      setIsEditId(response?.data?._id);
+    }
   };
 
   useEffect(() => {
@@ -38,9 +38,7 @@ const AdminTextSpace = () => {
       text: inputData,
     });
 
-    fetchData()
-    setDataId
-    console.log(response, "response");
+    fetchData();
   };
 
   const handleUpdate = async () => {
@@ -48,12 +46,11 @@ const AdminTextSpace = () => {
       text: inputData,
       _id: isEditId,
     });
-    console.log(response, "responseresponse");
-    fetchData()
+    fetchData();
   };
 
   return (
-    <Box >
+    <Box>
       <Card className={styles.textSpaceWrapper} align="center">
         <CardHeader>
           <Heading size="md" textAlign={"start"} pt={"0px!important"}>

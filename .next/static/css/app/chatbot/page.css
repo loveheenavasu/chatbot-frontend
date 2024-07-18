@@ -1,0 +1,72 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/chatbot/chatbot.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+.chatbot_chatHeader__nrwxb {
+  color: white;
+  width: 100%;
+  background-color: #575782;
+  height: 65px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  padding-left: 30px;
+  gap: 10px;
+}
+
+.chatbot_chatContainer__YCGEi {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  background-color: #e9e9ff;
+  overflow-y: auto;
+}
+
+.chatbot_chatFooter__usEyH {
+  color: white;
+  width: 100%;
+  background-color: #575782;
+  height: 80px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  padding-left: 30px;
+  gap: 10px;
+}
+
+.chatbot_messageBox__1YGKE {
+  display: flex;
+  gap: 5px;
+  padding: 20px;
+  align-items: start;
+  /* height: 80px; */
+  max-width: 50%;
+}
+
+.chatbot_chat__ljADx {
+  min-height: 45px;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 45px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+  0 6px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.chatbot_messageInput__cdqhl {
+  background-color: white;
+}
+
+.chatbot_chatContainerAdmin__AHlKQ {
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.chatbot_chatContainerUser__JNsqz {
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+}
+
