@@ -18,11 +18,8 @@ import { useState } from "react";
 
 const SourceCard = ({ inputData }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  let documentID: string | null;
 
-  if (typeof window !== "undefined") {
-    documentID = localStorage.getItem("documentId");
-  }
+  const documentID = localStorage.getItem("documentId");
 
   return (
     <Box>
