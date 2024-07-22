@@ -6,6 +6,8 @@ import { Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
 import { SOCKET } from "../../services/socket";
+import { useSearchParams } from "next/navigation";
+import Loader from "react-js-loader";
 
 interface Message {
   chatId: number | null;
@@ -19,52 +21,26 @@ const ChatBot = () => {
       {
         chatId: null,
         type: "AI",
-        message: "Welcome to our support chat! How can I assist you today?",
+        message: "Welcome to our Chatbot",
       },
     ])
   );
   const [chatId, setChatId] = useState<string>("");
-  const token = localStorage.getItem("authToken");
-  // const socket: Socket = io(`${process.env.NEXT_PUBLIC_BASE_URL}/`, {
-  //   transports: ["polling", "websocket"],
-  //   extraHeaders: {
-  //     token: `Bearer ${token}`,
-  //   },
-  //   // auth: {
-  //   //   token: `Bearer ${token}`,
-  //   // },
-  // });
+  const [loading, setLoading] = useState<boolean>(false);
+  const searchParams = useSearchParams();
 
-  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  // const socketUrl = baseUrl?.replace(/^http/, 'ws') + '/ws';
-
-  // // const socketUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/ws`
-  // const ws = useRef<WebSocket | null>(null);
-
-  // const handleSend = (e: React.FormEvent, message: string) => {
-  //   console.log(message, 'MESSAGE')
-  //   if (message === "") {
-  //     return null;
-  //   }
-  //   e.preventDefault();
-  //   socket.emit("search", { message });
-  //   setChatMessage([
-  //     ...chatMessage,
-  //     {
-  //       id: chatMessage.length + 1,
-  //       role: "user",
-  //       message: message,
-  //       timestamp: "2024-07-10T09:00:00Z",
-  //     },
-  //   ]);
-  // };
-
+  const id = searchParams.get("id");
   useEffect(() => {
     SOCKET.connect();
     SOCKET.on("connect", () => {
       console.log(SOCKET.id, "wjefre");
     });
     SOCKET.on("searches", (data) => {
+      if (data.type === "USER") {
+        setLoading(true);
+      } else {
+        setLoading(false);
+      }
       setChatId(data?.chatId);
       setChatMessage((prev) => [...prev, data]);
     });
@@ -83,18 +59,19 @@ const ChatBot = () => {
       return null;
     }
     e.preventDefault();
-    let documentId = localStorage.getItem("documentId");
+
     SOCKET.emit("search", {
       text: message,
       connectId: chatId || SOCKET.id,
-      documentId,
+      documentId: id,
     });
   };
 
   return (
     <Box>
       <ChatHeader />
-      <ChatContainer chatMessage={chatMessage} />
+      <ChatContainer chatMessage={chatMessage} loading={loading} />
+      {/* <Box>{loading && "loading..."}</Box> */}
       <ChatFooter handleSend={handleSend} />
     </Box>
   );

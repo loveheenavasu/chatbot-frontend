@@ -2,36 +2,30 @@ import { Avatar, Box } from "@chakra-ui/react";
 import React from "react";
 import styles from "../app/chatbot/chatbot.module.css";
 
-export enum Role{
+export enum Role {
   User = "USER",
-  AI = 'AI'
+  AI = "AI",
 }
 
 interface Message {
   chatId?: number | null;
-  type: string
+  type: string;
   message: string;
 }
 
 interface MessageBoxAdminProps {
   data: Message;
+  loading: boolean;
 }
 
-const MessageBoxAdmin = ({ data }: MessageBoxAdminProps) => {
+const MessageBoxAdmin = ({ data, loading }: MessageBoxAdminProps) => {
+  console.log(loading, 234242424242343);
   return (
-    <Box className={styles.messageBox}>
-      <Avatar
-        ml={2}
-        size="md"
-        name={data?.type === "AI" ? "Kent Dodds" : "Dan Abrahmov"}
-        src={
-          data?.type === Role.AI
-            ? "https://bit.ly/kent-c-dodds"
-            : "https://bit.ly/dan-abramov"
-        }
-      />
-      <Box className={styles.chat}>{data?.message}</Box>
-    </Box>
+    <>
+      <Box className={styles.messageBox}>
+        <Box className={styles.chat}>{data?.message}</Box>
+      </Box>
+    </>
   );
 };
 

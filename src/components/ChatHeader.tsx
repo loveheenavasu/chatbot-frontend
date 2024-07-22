@@ -6,14 +6,7 @@ import { FaCircle } from "react-icons/fa";
 const ChatHeader = () => {
   return (
     <Box className={styles.chatHeader}>
-      <FaCircle color="#8ff78f" />
-      <Avatar
-        mt={"2px"}
-        size="md"
-        name="Kent Dodds"
-        src="https://bit.ly/kent-c-dodds"
-      />{" "}
-      <Heading size={"md"}> ChatBOT Assistant</Heading>
+      <Heading size={"md"}> ChatBOT </Heading>
     </Box>
   );
 };

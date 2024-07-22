@@ -8,6 +8,7 @@ import { JwtPayload } from "jsonwebtoken";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
+// import Cookies from "js-cookie";
 
 type LoginData = {
   email: string;
@@ -38,6 +39,12 @@ const LoginCard = () => {
 
   // const isLoggedIn = localStorage.getItem("authToken");
 
+  // useEffect(() => {
+  //   if (isLoggedIn) {
+  //     router.push("/chat/admin");
+  //   }
+  // }, []);
+
   const authen = async (data: LoginData) => {
     try {
       const response = await axios.post(
@@ -45,10 +52,11 @@ const LoginCard = () => {
         data
       );
       const { socialToken, _id } = response.data;
+      // Cookies.set("authToken", socialToken);
       localStorage.setItem("authToken", socialToken);
       localStorage.setItem("userId", _id);
 
-      router.replace("/adminpanel");
+      router.replace("/chat/admin");
     } catch (error) {
       console.error(error, "Error during authentication");
     }
@@ -70,7 +78,7 @@ const LoginCard = () => {
       authen(newLoginData);
 
       if (newLoginData) {
-        router.push("/adminpanel");
+        router.push("/chat/admin");
       }
     }
   };

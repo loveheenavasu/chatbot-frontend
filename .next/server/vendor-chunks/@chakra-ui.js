@@ -1716,6 +1716,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/@chakra-ui/icons/dist/chunk-FBZFEQBO.mjs":
+/*!***************************************************************!*\
+  !*** ./node_modules/@chakra-ui/icons/dist/chunk-FBZFEQBO.mjs ***!
+  \***************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   CopyIcon: () => (/* binding */ CopyIcon)\n/* harmony export */ });\n/* harmony import */ var _chakra_ui_icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @chakra-ui/icon */ \"(ssr)/./node_modules/@chakra-ui/icon/dist/chunk-DEQZ7DVA.mjs\");\n/* __next_internal_client_entry_do_not_use__ CopyIcon auto */ // src/Copy.tsx\n\nvar CopyIcon = (0,_chakra_ui_icon__WEBPACK_IMPORTED_MODULE_0__.createIcon)({\n    d: \"M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z\",\n    displayName: \"CopyIcon\"\n});\n //# sourceMappingURL=chunk-FBZFEQBO.mjs.map\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvQGNoYWtyYS11aS9pY29ucy9kaXN0L2NodW5rLUZCWkZFUUJPLm1qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFBMkI7QUFFcEIsSUFBTUMsV0FBV0QsMkRBQVVBLENBQUM7SUFDakNFLEdBQUc7SUFDSEMsYUFBYTtBQUNmIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vY2hhdGJvdC8uLi9zcmMvQ29weS50c3g/OGJiNCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVJY29uIH0gZnJvbSBcIkBjaGFrcmEtdWkvaWNvblwiXG5cbmV4cG9ydCBjb25zdCBDb3B5SWNvbiA9IGNyZWF0ZUljb24oe1xuICBkOiBcIk0xNiAxSDRjLTEuMSAwLTIgLjktMiAydjE0aDJWM2gxMlYxem0zIDRIOGMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxMWMxLjEgMCAyLS45IDItMlY3YzAtMS4xLS45LTItMi0yem0wIDE2SDhWN2gxMXYxNHpcIixcbiAgZGlzcGxheU5hbWU6IFwiQ29weUljb25cIixcbn0pXG4iXSwibmFtZXMiOlsiY3JlYXRlSWNvbiIsIkNvcHlJY29uIiwiZCIsImRpc3BsYXlOYW1lIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/@chakra-ui/icons/dist/chunk-FBZFEQBO.mjs\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/@chakra-ui/image/dist/chunk-QINAG4RG.mjs":
 /*!***************************************************************!*\
   !*** ./node_modules/@chakra-ui/image/dist/chunk-QINAG4RG.mjs ***!
@@ -5676,143 +5686,6 @@ __webpack_require__.r(__webpack_exports__);
 /* __next_internal_client_entry_do_not_use__ VisuallyHidden,VisuallyHiddenInput,visuallyHiddenStyle auto */ 
 
  //# sourceMappingURL=index.mjs.map
-
-
-/***/ }),
-
-/***/ "(rsc)/./node_modules/@chakra-ui/layout/dist/index.mjs":
-/*!*******************************************************!*\
-  !*** ./node_modules/@chakra-ui/layout/dist/index.mjs ***!
-  \*******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AbsoluteCenter: () => (/* binding */ e0),
-/* harmony export */   AspectRatio: () => (/* binding */ e1),
-/* harmony export */   Badge: () => (/* binding */ e2),
-/* harmony export */   Box: () => (/* binding */ e3),
-/* harmony export */   Center: () => (/* binding */ e4),
-/* harmony export */   Circle: () => (/* binding */ e5),
-/* harmony export */   Code: () => (/* binding */ e6),
-/* harmony export */   Container: () => (/* binding */ e7),
-/* harmony export */   Divider: () => (/* binding */ e8),
-/* harmony export */   Flex: () => (/* binding */ e9),
-/* harmony export */   Grid: () => (/* binding */ e10),
-/* harmony export */   GridItem: () => (/* binding */ e11),
-/* harmony export */   HStack: () => (/* binding */ e12),
-/* harmony export */   Heading: () => (/* binding */ e13),
-/* harmony export */   Highlight: () => (/* binding */ e14),
-/* harmony export */   Indicator: () => (/* binding */ e15),
-/* harmony export */   Kbd: () => (/* binding */ e16),
-/* harmony export */   Link: () => (/* binding */ e17),
-/* harmony export */   LinkBox: () => (/* binding */ e18),
-/* harmony export */   LinkOverlay: () => (/* binding */ e19),
-/* harmony export */   List: () => (/* binding */ e20),
-/* harmony export */   ListIcon: () => (/* binding */ e21),
-/* harmony export */   ListItem: () => (/* binding */ e22),
-/* harmony export */   Mark: () => (/* binding */ e23),
-/* harmony export */   OrderedList: () => (/* binding */ e24),
-/* harmony export */   SimpleGrid: () => (/* binding */ e25),
-/* harmony export */   Spacer: () => (/* binding */ e26),
-/* harmony export */   Square: () => (/* binding */ e27),
-/* harmony export */   Stack: () => (/* binding */ e28),
-/* harmony export */   StackDivider: () => (/* binding */ e29),
-/* harmony export */   StackItem: () => (/* binding */ e30),
-/* harmony export */   Text: () => (/* binding */ e31),
-/* harmony export */   UnorderedList: () => (/* binding */ e32),
-/* harmony export */   VStack: () => (/* binding */ e33),
-/* harmony export */   Wrap: () => (/* binding */ e34),
-/* harmony export */   WrapItem: () => (/* binding */ e35),
-/* harmony export */   useHighlight: () => (/* binding */ e36),
-/* harmony export */   useListStyles: () => (/* binding */ e37)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#AbsoluteCenter`);
-
-const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#AspectRatio`);
-
-const e2 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Badge`);
-
-const e3 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Box`);
-
-const e4 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Center`);
-
-const e5 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Circle`);
-
-const e6 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Code`);
-
-const e7 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Container`);
-
-const e8 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Divider`);
-
-const e9 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Flex`);
-
-const e10 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Grid`);
-
-const e11 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#GridItem`);
-
-const e12 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#HStack`);
-
-const e13 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Heading`);
-
-const e14 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Highlight`);
-
-const e15 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Indicator`);
-
-const e16 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Kbd`);
-
-const e17 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Link`);
-
-const e18 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#LinkBox`);
-
-const e19 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#LinkOverlay`);
-
-const e20 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#List`);
-
-const e21 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#ListIcon`);
-
-const e22 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#ListItem`);
-
-const e23 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Mark`);
-
-const e24 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#OrderedList`);
-
-const e25 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#SimpleGrid`);
-
-const e26 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Spacer`);
-
-const e27 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Square`);
-
-const e28 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Stack`);
-
-const e29 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#StackDivider`);
-
-const e30 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#StackItem`);
-
-const e31 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Text`);
-
-const e32 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#UnorderedList`);
-
-const e33 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#VStack`);
-
-const e34 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#Wrap`);
-
-const e35 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#WrapItem`);
-
-const e36 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#useHighlight`);
-
-const e37 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/zestgeek12/Desktop/Officework/chatbot-frontend/node_modules/@chakra-ui/layout/dist/index.mjs#useListStyles`);
 
 
 /***/ }),

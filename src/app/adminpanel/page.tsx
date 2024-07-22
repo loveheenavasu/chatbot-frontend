@@ -11,6 +11,8 @@ import WebsiteCard from "@/components/WebsiteCard";
 
 const Admin = () => {
   const [activeButton, setActive] = useState<string>("Text");
+  const [inputData, setInputData] = useState<string>("");
+
   const renderCards = () => {
     switch (activeButton) {
       case "Website":
@@ -18,7 +20,9 @@ const Admin = () => {
       case "Files":
         return <FIlesCard />;
       default:
-        return <AdminTextSpace />;
+        return (
+          <AdminTextSpace inputData={inputData} setInputData={setInputData} />
+        );
     }
   };
 
@@ -33,7 +37,7 @@ const Admin = () => {
         </Box>
         <Box className={styles.adminCenterWrapper}>{renderCards()}</Box>
         <Box className={styles.adminRightWrapper}>
-          <SourceCard />
+          <SourceCard inputData={inputData} />
         </Box>
       </Box>
     </>

@@ -9,14 +9,14 @@ interface chatMessage {
   message: string;
 }
 
-
 interface ChatContainerProps {
-  chatMessage: chatMessage[]; 
+  chatMessage: chatMessage[];
+  loading: boolean;
 }
 
-const ChatContainer = ({ chatMessage }: ChatContainerProps) => {
+const ChatContainer = ({ chatMessage, loading }: ChatContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -34,7 +34,7 @@ const ChatContainer = ({ chatMessage }: ChatContainerProps) => {
                 : styles.chatContainerUser
             }
           >
-            <MessageBoxAdmin data={ele} />
+            <MessageBoxAdmin data={ele} loading={loading} />
           </Box>
         );
       })}

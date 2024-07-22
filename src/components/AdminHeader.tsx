@@ -1,9 +1,25 @@
-import { Box, Flex, Heading, IconButton, Spacer } from "@chakra-ui/react";
 import React from "react";
+import { Box, Heading, IconButton, Spacer, Text } from "@chakra-ui/react";
 import styles from "../app/adminpanel/admin.module.css";
-import Link from "next/link";
+
+import axiosInstance from "@/utils/axiosInstance";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const AdminHeader = () => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      const response = await axiosInstance.delete(`user/logout`);
+      if (response?.data) {
+        router.push("/login");
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      toast.error("something went wrong");
+    }
+  };
   return (
     <Box>
       <Box className={styles.adminHeaderWrapper}>
@@ -12,11 +28,18 @@ const AdminHeader = () => {
             Chat BOT
           </Heading>
           <Spacer />
-          <Box className={styles.navbar}>
-            <Link href={""}>Home</Link>
+          <Box>
+            {/* <Link href={""}>Home</Link>
             <Link href={""}>About</Link>
-            <Link href={""}>Services</Link>
-            <Link href={""}>Contact</Link>
+            <Link href={""}>Services</Link> */}
+            <Text
+              fontSize="xl"
+              fontWeight="bold"
+              cursor="pointer"
+              onClick={handleLogout}
+            >
+              Logout
+            </Text>
           </Box>
           <IconButton
             display={{ base: "flex", md: "none" }}

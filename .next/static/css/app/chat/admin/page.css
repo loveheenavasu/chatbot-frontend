@@ -1,0 +1,365 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/adminpanel/admin.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.admin_mainWrapper__M3hXg {
+   display: flex;
+   padding: 20px;
+   justify-content: center;
+   width: 100%;
+   height:100vh
+}
+
+.admin_subWrapper__dghuX {
+    display: flex;
+    width: 50%;
+    padding: 20px;
+    justify-content: center;
+    height: 100%;
+}
+
+.admin_textAreaWrapper__J_q9R {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.admin_adminHeaderWrapper__2aK7u {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   height: 50px;
+}
+
+.admin_subheadingAdmin__H_sn_ {
+    width: 100%;
+    background-color: #7ab3e7;
+    color: white;
+    display: flex;
+    height: 100%;
+    padding: 15px;
+    align-items: center;
+}
+
+.admin_navbar__sVXge {
+    width: 25%;
+    display: flex;
+    gap: 35px;
+
+
+  }
+
+  .admin_dataBox__COfx4 {
+    width: 550px;
+    padding: 15px;
+    height: 250px;
+    border-radius: 20px;
+    background-color: #e8f8ff;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .admin_dataBoxWrapper__H62Xj {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    height: 80%;
+    overflow-y: auto;
+  }
+
+  .admin_buttonWrapper__vEH5D {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .admin_iconDelete__keAOo {
+   position: relative;
+   /* top: 0; */
+   right: 0
+  }
+
+
+  .admin_dataTextWrapper__bcBKg {
+    max-width: 490px;
+  }
+
+  .admin_skeletonBox__6kXBh {
+    height:100px;
+    border-radius: 20px;
+    width: 500px;
+  }
+
+  .admin_textSpaceWrapper__riqDn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    text-align: start;
+    border: 1px solid rgb(40, 38, 38);
+  }
+
+
+  .admin_leftSidebar__vytKM {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    border-radius: 5px ;
+    gap: 4px;
+  }
+
+  .admin_adminLeftWrapper__hVbNI {
+    padding-left: 85px;
+    width: 20%;
+    height: 100vh;
+  }
+
+  .admin_adminCenterWrapper__82x9J {
+    width: 55%;
+    height: 100vh;
+  }
+
+  .admin_adminRightWrapper__2_60w {
+    padding: 30px;
+    padding-top: 0px !important;
+    width: 30%;
+    height: 100vh;
+  }
+
+  .admin_retrain__8dMaQ {
+    background-color: #5188b9 !important;
+    color: white !important;
+  }
+  
+  .admin_retrain__8dMaQ:hover {
+    color: black ;
+    background-color: lightgrey 
+  }
+
+  .admin_buttonsWrapper__8alPb {
+   display: flex;
+   padding-left: 10px;
+   border-radius: 5px;
+   text-align: start;
+   align-items: center;
+   justify-content: space-between;
+   cursor: pointer;
+  }
+
+  .admin_activeButton__sl0c8{
+    display: flex;
+    padding-left: 10px;
+    border-radius: 5px;
+    text-align: start;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#f9f9f9;
+    color: blue
+  }
+
+
+  .admin_buttonsWrapper__8alPb:hover {
+    background-color:#f9f9f9;
+    color: blue
+  }
+
+  .admin_fileWrapper__VJDBF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100px;
+    gap:15px;
+    cursor:pointer;
+    width: 100%;
+  }
+
+  .admin_cardWrapper__d6K9S {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/chat/admin/admin.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.admin_mainWrapper__oauqL {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.admin_subWrapper__9XJmq {
+  display: flex;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+  height: 100%;
+}
+
+.admin_textAreaWrapper__RF9xQ {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin_adminHeaderWrapper__M2fO3 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.admin_subheadingAdmin__ThJQ0 {
+  width: 100%;
+  background-color: #7ab3e7;
+  color: white;
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  align-items: center;
+}
+
+.admin_navbar__C9EP_ {
+  width: 25%;
+  display: flex;
+  gap: 35px;
+}
+
+.admin_dataBox__UMljw {
+  width: 550px;
+  padding: 15px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: #e8f8ff;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin_dataBoxWrapper__wyBkM {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.admin_buttonWrapper__rRrDb {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin_iconDelete__klPg2 {
+  position: relative;
+  /* top: 0; */
+  right: 0;
+}
+
+.admin_dataTextWrapper__eAJv6 {
+  max-width: 490px;
+}
+
+.admin_skeletonBox__EKVrk {
+  height: 100px;
+  border-radius: 20px;
+  width: 500px;
+}
+
+.admin_textSpaceWrapper__5oBGx {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  text-align: start;
+  border: 1px solid rgb(40, 38, 38);
+}
+
+.admin_leftSidebar__TJtnt {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border-radius: 5px;
+  gap: 4px;
+}
+
+.admin_adminLeftWrapper__XKqQD {
+  padding-left: 85px;
+  width: 20%;
+  height: 100vh;
+}
+
+.admin_adminCenterWrapper__ylRKZ {
+  width: 55%;
+  height: 100vh;
+}
+
+.admin_adminRightWrapper__OPnB_ {
+  padding: 30px;
+  padding-top: 0px !important;
+  width: 30%;
+  height: 100vh;
+}
+
+.admin_retrain__ltNbF {
+  background-color: #5188b9 !important;
+  color: white !important;
+}
+
+.admin_retrain__ltNbF:hover {
+  color: black;
+  background-color: lightgrey;
+}
+
+.admin_buttonsWrapper__o2Fsu {
+  display: flex;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-align: start;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.admin_activeButton__DJekj {
+  display: flex;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-align: start;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  color: blue;
+}
+
+.admin_buttonsWrapper__o2Fsu:hover {
+  background-color: #f9f9f9;
+  color: blue;
+}
+
+.admin_fileWrapper__f5BL_ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.admin_cardWrapper__awV6v {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+

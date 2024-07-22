@@ -1,6 +1,6 @@
 {
-  "/page": "app/page.js",
+  "/chatbot/page": "app/chatbot/page.js",
+  "/chat/admin/page": "app/chat/admin/page.js",
   "/login/page": "app/login/page.js",
-  "/adminpanel/page": "app/adminpanel/page.js",
-  "/chatbot/page": "app/chatbot/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
