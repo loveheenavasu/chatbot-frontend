@@ -1,10 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
-
-const socket = io("http://localhost:3000/");
-
+import { useState } from "react";
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");

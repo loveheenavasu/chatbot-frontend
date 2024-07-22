@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ChakraProvider>
-          <GoogleOAuthProvider clientId="429891697483-fbsjt9h0rem8gmruqmvegfk61ognvpfh.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID || ""}>
             {children}
             <ToastContainer />
           </GoogleOAuthProvider>

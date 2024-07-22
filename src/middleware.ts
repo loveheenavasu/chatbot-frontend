@@ -4,6 +4,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const parts = pathname.split("/");
   const pathId = parts[parts.length - 1];
+  console.log(pathId, "2394823842304", pathname);
   const currentUser = request.cookies.get("authToken")?.value;
   if (pathname.startsWith(`/chatbot/${pathId}`)) {
     if (currentUser) {
