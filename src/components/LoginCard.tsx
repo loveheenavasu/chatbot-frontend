@@ -54,11 +54,10 @@ const LoginCard = () => {
       );
       const { socialToken, _id } = response.data;
       Cookies.set("authToken", socialToken);
-      console
       setLocalStorageItem("authToken", socialToken);
       setLocalStorageItem("userId", _id);
 
-      router.replace("/chat/admin");
+      router.push("/chat/admin");
     } catch (error) {
       console.error(error, "Error during authentication");
     }

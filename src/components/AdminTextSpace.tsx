@@ -46,7 +46,6 @@ const AdminTextSpace = ({ inputData, setInputData }: any) => {
         text: inputData,
       });
 
-      console.log("Post request successful:", response?.data);
       if (response?.data) {
         toast(response?.data?.messgage);
       }

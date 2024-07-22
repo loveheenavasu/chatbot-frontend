@@ -44,11 +44,11 @@ const SourceCard = ({ inputData }: any) => {
           {isOpen && (
             <Flex>
               <Link
-                href={`http://localhost:3000/chatbot?id=${documentID}`}
+                href={`${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`}
                 isExternal
               >
                 <Text fontWeight="bold">
-                  http://localhost:3000/chatbot?id={documentID}
+                  {`${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`}
                 </Text>
               </Link>
 
@@ -57,7 +57,7 @@ const SourceCard = ({ inputData }: any) => {
                 icon={<CopyIcon />}
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `http://localhost:3000/chatbot?id=${documentID}`
+                    `${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`
                   );
                   toast.success("Text copied");
                 }}
