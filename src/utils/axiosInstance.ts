@@ -1,13 +1,11 @@
 "use client";
 import axios from "axios";
+import { getLocalStorageItem } from "./localStorage";
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
-let authToken: string | null;
-if (typeof window !== "undefined") {
-  authToken = localStorage.getItem("authToken");
-}
+const authToken = getLocalStorageItem("authToken");
 
 axiosInstance.interceptors.request.use(
   async (config) => {

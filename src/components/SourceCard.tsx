@@ -14,12 +14,17 @@ import { IconButton } from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getLocalStorageItem } from "@/utils/localStorage";
 
 const SourceCard = ({ inputData }: any) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const documentID = localStorage.getItem("documentId");
+  const documentID = getLocalStorageItem("documentId");
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     documentID = localStorage.getItem("documentId");
+  //   }
+  // }, []);
 
   return (
     <Box>
@@ -29,7 +34,7 @@ const SourceCard = ({ inputData }: any) => {
         </CardHeader>
         <CardBody>
           <Heading size={"sm"}>Total detected characters</Heading>
-          <Text marginBottom={6}>{inputData.length}/4,00,000 limit</Text>
+          <Text marginBottom={6}>{inputData?.length}/4,00,000 limit</Text>
           {inputData && !isOpen && (
             <Button marginBottom={4} onClick={() => setIsOpen(true)}>
               Generate Link

@@ -15,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../app/adminpanel/admin.module.css";
 import axiosInstance from "@/utils/axiosInstance";
 import { toast } from "react-toastify";
+import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
 
 const AdminTextSpace = ({ inputData, setInputData }: any) => {
   const [isEditId, setIsEditId] = useState<string>("");
@@ -22,10 +23,11 @@ const AdminTextSpace = ({ inputData, setInputData }: any) => {
 
   const fetchData = async () => {
     try {
-      const userId = localStorage.getItem("userId");
+      const userId = getLocalStorageItem("userId");
       const response = await axiosInstance.get(`/user/text/${userId}`);
       if (response.data) {
-        localStorage.setItem("documentId", response.data.documentId);
+        setLocalStorageItem("documentId", response.data.documentId);
+        // localStorage.setItem("documentId", response.data.documentId);
         setInputData(response?.data?.text);
         setIsEditId(response?.data?._id);
       }

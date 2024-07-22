@@ -9,6 +9,7 @@ import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { setLocalStorageItem } from "@/utils/localStorage";
 
 type LoginData = {
   email: string;
@@ -53,8 +54,9 @@ const LoginCard = () => {
       );
       const { socialToken, _id } = response.data;
       Cookies.set("authToken", socialToken);
-      localStorage.setItem("authToken", socialToken);
-      localStorage.setItem("userId", _id);
+      console
+      setLocalStorageItem("authToken", socialToken);
+      setLocalStorageItem("userId", _id);
 
       router.replace("/chat/admin");
     } catch (error) {
