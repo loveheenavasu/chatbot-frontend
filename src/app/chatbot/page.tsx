@@ -65,14 +65,14 @@ const ChatBot = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Box>
-        <ChatHeader />
-        <ChatContainer chatMessage={chatMessage} loading={loading} />
-        {/* <Box>{loading && "loading..."}</Box> */}
-        <ChatFooter handleSend={handleSend} />
-      </Box>
-    </Suspense>
+    // <Suspense fallback={<div>Loading...</div>}>
+    <Box>
+      <ChatHeader />
+      <ChatContainer chatMessage={chatMessage} loading={loading} />
+      {/* <Box>{loading && "loading..."}</Box> */}
+      <ChatFooter handleSend={handleSend} />
+    </Box>
+    // </Suspense>
   );
 };
 

@@ -5,6 +5,7 @@ import styles from "../app/adminpanel/admin.module.css";
 import axiosInstance from "@/utils/axiosInstance";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const AdminHeader = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ const AdminHeader = () => {
       const response = await axiosInstance.delete(`user/logout`);
       if (response?.data) {
         router.push("/login");
+        Cookies.remove("authToken");
         toast.success(response.data.message);
       }
     } catch (error) {
