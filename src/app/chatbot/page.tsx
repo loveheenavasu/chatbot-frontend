@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ChatContainer from "@/components/ChatContainer";
 import ChatFooter from "@/components/ChatFooter";
 import ChatHeader from "@/components/ChatHeader";
@@ -14,20 +14,19 @@ interface Message {
 }
 
 const ChatBot = () => {
-  const [chatMessage, setChatMessage] = useState<Message[]>(
-    ([] = [
-      {
-        chatId: null,
-        type: "AI",
-        message: "Welcome to our Chatbot",
-      },
-    ])
-  );
+  const [chatMessage, setChatMessage] = useState<Message[]>([
+    {
+      chatId: null,
+      type: "AI",
+      message: "Welcome to our Chatbot",
+    },
+  ]);
+  //http://localhost:3000/chatbot?id=7f00126e-0cbe-4f43-9042-300b271c90d5
   const [chatId, setChatId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
-  const id = searchParams.get("id");
+  const id = "7f00126e-0cbe-4f43-9042-300b271c90d5";
   useEffect(() => {
     SOCKET.connect();
     SOCKET.on("connect", () => {
@@ -66,12 +65,14 @@ const ChatBot = () => {
   };
 
   return (
-    <Box>
-      <ChatHeader />
-      <ChatContainer chatMessage={chatMessage} loading={loading} />
-      {/* <Box>{loading && "loading..."}</Box> */}
-      <ChatFooter handleSend={handleSend} />
-    </Box>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Box>
+        <ChatHeader />
+        <ChatContainer chatMessage={chatMessage} loading={loading} />
+        {/* <Box>{loading && "loading..."}</Box> */}
+        <ChatFooter handleSend={handleSend} />
+      </Box>
+    </Suspense>
   );
 };
 
