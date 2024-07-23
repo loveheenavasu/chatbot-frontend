@@ -11,5 +11,10 @@ const setLocalStorageItem = (key: string, value: any) => {
     localStorage.setItem(key, value);
   }
 };
+const removeLocalStorageItem = () => {
+  if (typeof window !== "undefined") {
+    localStorage.clear();
+  }
+};
 
-export { setLocalStorageItem, getLocalStorageItem };
+export { setLocalStorageItem, getLocalStorageItem, removeLocalStorageItem };

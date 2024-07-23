@@ -23,7 +23,10 @@ const ChatContainer = ({ chatMessage, loading }: ChatContainerProps) => {
     }
   }, [chatMessage]);
   return (
-    <Box ref={containerRef} className={styles.chatContainer}>
+    <Box
+      ref={containerRef}
+      className={`${styles.chatContainer} ${loading ? styles.chatLoading : ""}`}
+    >
       {chatMessage?.map((ele, id) => {
         return (
           <Box

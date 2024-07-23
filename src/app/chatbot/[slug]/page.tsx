@@ -8,6 +8,7 @@ import { Box } from "@chakra-ui/react";
 import { SOCKET } from "../../../services/socket";
 
 import { useRouter } from "next/navigation";
+import styles from "../chatbot.module.css";
 
 interface Message {
   chatId: number | null;
@@ -27,7 +28,6 @@ const ChatBot = ({ params }: any) => {
   const [chatId, setChatId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const id = params.slug;
-  console.log(id);
 
   useEffect(() => {
     SOCKET.connect();
@@ -67,14 +67,51 @@ const ChatBot = ({ params }: any) => {
   };
 
   return (
-    // <Suspense fallback={<div>Loading...</div>}>
     <Box>
       <ChatHeader />
       <ChatContainer chatMessage={chatMessage} loading={loading} />
-      {/* <Box>{loading && "loading..."}</Box> */}
+      {loading && (
+        <Box className={styles.chatSvg}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            width="70"
+            height="70"
+            preserveAspectRatio="xMidYMid"
+            fill="yellow"
+          >
+            <circle cx="30" cy="50" r="5" fill="#1e90ff">
+              <animate
+                attributeName="cx"
+                values="30;70;30"
+                dur="1.5s"
+                repeatCount="indefinite"
+                begin="0s"
+              />
+            </circle>
+            <circle cx="50" cy="50" r="5" fill="#3cb371">
+              <animate
+                attributeName="cx"
+                values="30;70;30"
+                dur="1.5s"
+                repeatCount="indefinite"
+                begin="-0.75s"
+              />
+            </circle>
+            <circle cx="70" cy="50" r="5" fill="#ff6347">
+              <animate
+                attributeName="cx"
+                values="30;70;30"
+                dur="1.5s"
+                repeatCount="indefinite"
+                begin="-0.5s"
+              />
+            </circle>
+          </svg>
+        </Box>
+      )}
       <ChatFooter handleSend={handleSend} />
     </Box>
-    // </Suspense>
   );
 };
 

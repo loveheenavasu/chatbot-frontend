@@ -54,16 +54,17 @@ const LoginCard = () => {
       );
       const { socialToken, _id } = response.data;
       Cookies.set("authToken", socialToken);
+      Cookies.set("_id", _id);
       setLocalStorageItem("authToken", socialToken);
       setLocalStorageItem("userId", _id);
-
-      router.push("/chat/admin");
+      location.reload();
     } catch (error) {
       console.error(error, "Error during authentication");
     }
   };
 
   const responseMessage = (response: ResponseMessage) => {
+    console.log(response, "resonse");
     if (response.credential != null) {
       const USER_CREDENTIAL = jwtDecode(
         response.credential
@@ -84,7 +85,7 @@ const LoginCard = () => {
     }
   };
   const errorMessage = (error?: string) => {
-    console.log(error, "sdafjhse");
+    console.log(error, "error");
   };
 
   return (

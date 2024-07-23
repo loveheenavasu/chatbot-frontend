@@ -8,6 +8,7 @@ import {
   CardFooter,
   CardHeader,
   Heading,
+  Spinner,
   Text,
   Textarea,
 } from "@chakra-ui/react";
@@ -20,9 +21,11 @@ import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
 const AdminTextSpace = ({ inputData, setInputData }: any) => {
   const [isEditId, setIsEditId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [screenLoading, setscreenLoading] = useState<boolean>(false);
 
   const fetchData = async () => {
     try {
+      setscreenLoading(true);
       const userId = getLocalStorageItem("userId");
       const response = await axiosInstance.get(`/user/text/${userId}`);
       if (response.data) {
@@ -31,8 +34,9 @@ const AdminTextSpace = ({ inputData, setInputData }: any) => {
         setInputData(response?.data?.text);
         setIsEditId(response?.data?._id);
       }
+      setscreenLoading(false);
     } catch (error) {
-      console.log(error, "23423424234");
+      setscreenLoading(false);
     }
   };
 
@@ -72,55 +76,58 @@ const AdminTextSpace = ({ inputData, setInputData }: any) => {
       setLoading(false);
     }
   };
-
-  // const handleUpdate = async () => {
-  //   const response = await axiosInstance.patch(`/user/text`, {
-  //     text: inputData,
-  //     _id: isEditId,
-  //   });
-  //   fetchData();
-  // };
-
   return (
     <Box>
-      <Card className={styles.textSpaceWrapper} align="center">
-        <CardHeader>
-          <Heading size="md" textAlign={"start"} pt={"0px!important"}>
-            Text
-          </Heading>
-        </CardHeader>
-        <CardBody pt={"0px !important"} width={"100%"}>
-          <Box>
-            <Textarea
-              placeholder="Enter Text"
-              onChange={(e) => setInputData(e.target.value)}
-              height={300}
-              value={inputData}
-            />
-          </Box>
-        </CardBody>
-        <CardFooter>
-          <Box
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            flexDirection={"column"}
-            gap={"10px"}
-          >
-            <Text fontSize={12}>
-              {inputData ? inputData?.length : 0} characters
-            </Text>
-            <Button
-              sx={{ color: "white", backgroundColor: "#5188b9" }}
-              onClick={isEditId ? handleUpdate : handleAdd}
-              isLoading={loading}
-              colorScheme="blue"
+      {screenLoading ? (
+        <Box className={`${styles.screenLoading}`}>
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        </Box>
+      ) : (
+        <Card className={styles.textSpaceWrapper} align="center">
+          <CardHeader>
+            <Heading size="md" textAlign={"start"} pt={"0px!important"}>
+              Text
+            </Heading>
+          </CardHeader>
+          <CardBody pt={"0px !important"} width={"100%"}>
+            <Box>
+              <Textarea
+                placeholder="Enter Text"
+                onChange={(e) => setInputData(e.target.value)}
+                height={300}
+                value={inputData}
+              />
+            </Box>
+          </CardBody>
+          <CardFooter>
+            <Box
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              gap={"10px"}
             >
-              {isEditId ? "Update data" : "Add data"}
-            </Button>
-          </Box>
-        </CardFooter>
-      </Card>
+              <Text fontSize={12}>
+                {inputData ? inputData?.length : 0} characters
+              </Text>
+              <Button
+                sx={{ color: "white", backgroundColor: "#5188b9" }}
+                onClick={isEditId ? handleUpdate : handleAdd}
+                isLoading={loading}
+                colorScheme="blue"
+              >
+                {isEditId ? "Update data" : "Add data"}
+              </Button>
+            </Box>
+          </CardFooter>
+        </Card>
+      )}
     </Box>
   );
 };

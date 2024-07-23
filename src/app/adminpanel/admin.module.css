@@ -1,182 +1,180 @@
 .mainWrapper {
-   display: flex;
-   padding: 20px;
-   justify-content: center;
-   width: 100%;
-   height:100vh
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
 }
 
 .subWrapper {
-    display: flex;
-    width: 50%;
-    padding: 20px;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  width: 50%;
+  padding: 20px;
+  justify-content: center;
+  height: 100%;
 }
 
 .textAreaWrapper {
-    display: flex;
-    width: 100%;
-    height: 50%;
-    flex-direction: column;
-    gap: 10px;
-
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
+  gap: 10px;
+}
+.screenLoading {
+  display: flex;
+  justify-content: center;
 }
 
 .adminHeaderWrapper {
-   width: 100%;
-   display: flex;
-   align-items: center;
-   height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
 
 .subheadingAdmin {
-    width: 100%;
-    background-color: #7ab3e7;
-    color: white;
-    display: flex;
-    height: 100%;
-    padding: 15px;
-    align-items: center;
+  width: 100%;
+  background-color: #7ab3e7;
+  color: white;
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  align-items: center;
 }
 
 .navbar {
-    width: 25%;
-    display: flex;
-    gap: 35px;
+  width: 25%;
+  display: flex;
+  gap: 35px;
+}
 
+.dataBox {
+  width: 550px;
+  padding: 15px;
+  height: 250px;
+  border-radius: 20px;
+  background-color: #e8f8ff;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  }
+.dataBoxWrapper {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  height: 80%;
+  overflow-y: auto;
+}
 
-  .dataBox {
-    width: 550px;
-    padding: 15px;
-    height: 250px;
-    border-radius: 20px;
-    background-color: #e8f8ff;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  .dataBoxWrapper {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    height: 80%;
-    overflow-y: auto;
-  }
+.iconDelete {
+  position: relative;
+  /* top: 0; */
+  right: 0;
+}
 
-  .buttonWrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+.dataTextWrapper {
+  max-width: 490px;
+}
 
-  .iconDelete {
-   position: relative;
-   /* top: 0; */
-   right: 0
-  }
+.skeletonBox {
+  height: 100px;
+  border-radius: 20px;
+  width: 500px;
+}
 
+.textSpaceWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  text-align: start;
+  border: 1px solid rgb(40, 38, 38);
+}
 
-  .dataTextWrapper {
-    max-width: 490px;
-  }
+.leftSidebar {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border-radius: 5px;
+  gap: 4px;
+}
 
-  .skeletonBox {
-    height:100px;
-    border-radius: 20px;
-    width: 500px;
-  }
+.adminLeftWrapper {
+  padding-left: 85px;
+  width: 20%;
+  height: 100vh;
+}
 
-  .textSpaceWrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
-    text-align: start;
-    border: 1px solid rgb(40, 38, 38);
-  }
+.adminCenterWrapper {
+  width: 55%;
+  height: 100vh;
+}
 
+.adminRightWrapper {
+  padding: 30px;
+  padding-top: 0px !important;
+  width: 30%;
+  height: 100vh;
+}
 
-  .leftSidebar {
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-    border-radius: 5px ;
-    gap: 4px;
-  }
+.retrain {
+  background-color: #5188b9 !important;
+  color: white !important;
+}
 
-  .adminLeftWrapper {
-    padding-left: 85px;
-    width: 20%;
-    height: 100vh;
-  }
+.retrain:hover {
+  color: black;
+  background-color: lightgrey;
+}
 
-  .adminCenterWrapper {
-    width: 55%;
-    height: 100vh;
-  }
+.buttonsWrapper {
+  display: flex;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-align: start;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
 
-  .adminRightWrapper {
-    padding: 30px;
-    padding-top: 0px !important;
-    width: 30%;
-    height: 100vh;
-  }
+.activeButton {
+  display: flex;
+  padding-left: 10px;
+  border-radius: 5px;
+  text-align: start;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  color: blue;
+}
 
-  .retrain {
-    background-color: #5188b9 !important;
-    color: white !important;
-  }
-  
-  .retrain:hover {
-    color: black ;
-    background-color: lightgrey 
-  }
+.buttonsWrapper:hover {
+  background-color: #f9f9f9;
+  color: blue;
+}
 
-  .buttonsWrapper {
-   display: flex;
-   padding-left: 10px;
-   border-radius: 5px;
-   text-align: start;
-   align-items: center;
-   justify-content: space-between;
-   cursor: pointer;
-  }
+.fileWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 15px;
+  cursor: pointer;
+  width: 100%;
+}
 
-  .activeButton{
-    display: flex;
-    padding-left: 10px;
-    border-radius: 5px;
-    text-align: start;
-    align-items: center;
-    justify-content: space-between;
-    background-color:#f9f9f9;
-    color: blue
-  }
-
-
-  .buttonsWrapper:hover {
-    background-color:#f9f9f9;
-    color: blue
-  }
-
-  .fileWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100px;
-    gap:15px;
-    cursor:pointer;
-    width: 100%;
-  }
-
-  .cardWrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
+.cardWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}

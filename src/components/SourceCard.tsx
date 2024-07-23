@@ -34,7 +34,7 @@ const SourceCard = ({ inputData }: any) => {
         </CardHeader>
         <CardBody>
           <Heading size={"sm"}>Total detected characters</Heading>
-          <Text marginBottom={6}>{inputData?.length}/4,00,000 limit</Text>
+          <Text marginBottom={6}>{inputData?.length}</Text>
           {inputData && !isOpen && (
             <Button marginBottom={4} onClick={() => setIsOpen(true)}>
               Generate Link
@@ -44,11 +44,11 @@ const SourceCard = ({ inputData }: any) => {
           {isOpen && (
             <Flex>
               <Link
-                href={`${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`}
+                href={`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}
                 isExternal
               >
                 <Text fontWeight="bold">
-                  {`${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`}
+                  {`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}
                 </Text>
               </Link>
 
@@ -57,7 +57,7 @@ const SourceCard = ({ inputData }: any) => {
                 icon={<CopyIcon />}
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `${process.env.NEXT_PUBLIC_BASE_URL}/chatbot/${documentID}`
+                    `${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`
                   );
                   toast.success("Text copied");
                 }}

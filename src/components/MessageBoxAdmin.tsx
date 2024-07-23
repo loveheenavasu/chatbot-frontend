@@ -19,7 +19,6 @@ interface MessageBoxAdminProps {
 }
 
 const MessageBoxAdmin = ({ data, loading }: MessageBoxAdminProps) => {
-  // console.log(loading, 234242424242343);
   return (
     <>
       <Box className={styles.messageBox}>
