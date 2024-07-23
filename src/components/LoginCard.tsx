@@ -55,7 +55,6 @@ const LoginCard = () => {
       );
       const { socialToken, _id } = response.data;
       Cookies.set("authToken", socialToken);
-      Cookies.set("_id", _id);
       setLocalStorageItem("authToken", socialToken);
       setLocalStorageItem("userId", _id);
       location.reload();

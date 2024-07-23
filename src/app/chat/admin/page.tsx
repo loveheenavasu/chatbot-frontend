@@ -4,7 +4,7 @@ import AdminSideBar from "@/components/AdminSideBar";
 import AdminTextSpace from "@/components/AdminTextSpace";
 import FIlesCard from "@/components/FIlesCard";
 import WebsiteCard from "@/components/WebsiteCard";
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "../admin/admin.module.css";
 import SourceCard from "@/components/SourceCard";
@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 const Admin = () => {
   const [activeButton, setActive] = useState<string>("Text");
   const [inputData, setInputData] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
   const renderCards = () => {
     switch (activeButton) {
@@ -22,16 +23,28 @@ const Admin = () => {
         return <FIlesCard />;
       default:
         return (
-          <AdminTextSpace inputData={inputData} setInputData={setInputData} />
+          <AdminTextSpace
+            inputData={inputData}
+            setInputData={setInputData}
+            logoutLoading={loading}
+          />
         );
     }
   };
+  if (loading) {
+    return;
+  }
 
   return (
     <>
       <AdminHeader />
       <Box height={"80px"}></Box>
-      <Box display={"flex"} className={styles.adminWrapper}>
+
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        className={styles.adminWrapper}
+      >
         <Box className={styles.adminLeftWrapper}>
           <AdminSideBar activeButton={activeButton} setActive={setActive} />
         </Box>

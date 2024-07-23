@@ -19,7 +19,7 @@ import { getLocalStorageItem } from "@/utils/localStorage";
 import { useRouter } from "next/navigation";
 
 const SourceCard = ({ inputData }: any) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
   const documentID = getLocalStorageItem("documentId");
   const authToken = getLocalStorageItem("authToken");
@@ -28,6 +28,7 @@ const SourceCard = ({ inputData }: any) => {
       router.push("/login");
     }
   }, [authToken]);
+
 
   return (
     <Box>
@@ -38,13 +39,13 @@ const SourceCard = ({ inputData }: any) => {
         <CardBody>
           <Heading size={"sm"}>Total detected characters</Heading>
           <Text marginBottom={6}>{inputData?.length}</Text>
-          {inputData && !isOpen && (
+          {!inputData && !isOpen && (
             <Button marginBottom={4} onClick={() => setIsOpen(true)}>
               Generate Link
             </Button>
           )}
 
-          {isOpen && (
+          {inputData && (
             <Flex>
               <Link
                 href={`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}

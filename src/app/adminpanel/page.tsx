@@ -8,6 +8,7 @@ import AdminSideBar from "@/components/AdminSideBar";
 import SourceCard from "@/components/SourceCard";
 import FIlesCard from "@/components/FIlesCard";
 import WebsiteCard from "@/components/WebsiteCard";
+import { usePathname } from "next/navigation";
 
 const Admin = () => {
   const [activeButton, setActive] = useState<string>("Text");
@@ -25,12 +26,13 @@ const Admin = () => {
         );
     }
   };
-
+  const pathname = usePathname();
+  console.log(pathname, "10238108301823");
   return (
     <>
       <AdminHeader />
+
       <Box height={"80px"}></Box>
-      {/* <AdminBox/> */}
       <Box display={"flex"} className={styles.adminWrapper}>
         <Box className={styles.adminLeftWrapper}>
           <AdminSideBar activeButton={activeButton} setActive={setActive} />
