@@ -9,7 +9,7 @@ import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { setLocalStorageItem } from "@/utils/localStorage";
+import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
 
 type LoginData = {
   email: string;
@@ -38,16 +38,17 @@ const LoginCard = () => {
     password: "",
   });
 
-  // const isLoggedIn = localStorage.getItem("authToken");
+  const isLoggedIn = getLocalStorageItem("authToken");
 
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     router.push("/chat/admin");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/chat/admin");
+    }
+  }, [isLoggedIn]);
 
   const authen = async (data: LoginData) => {
     try {
+      console.log("a2034802384203840283");
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/login`,
         data
