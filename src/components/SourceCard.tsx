@@ -16,15 +16,18 @@ import { toast } from "react-toastify";
 
 import { useState, useEffect } from "react";
 import { getLocalStorageItem } from "@/utils/localStorage";
+import { useRouter } from "next/navigation";
 
 const SourceCard = ({ inputData }: any) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const documentID = getLocalStorageItem("documentId");
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     documentID = localStorage.getItem("documentId");
-  //   }
-  // }, []);
+  const authToken = getLocalStorageItem("authToken");
+  useEffect(() => {
+    if (!authToken) {
+      router.push("/login");
+    }
+  }, [authToken]);
 
   return (
     <Box>
