@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = `${process.env.NEXT_PUBLIC_BASE_URL}/`;
+const SOCKET_URL = `${process.env.NEXT_PUBLIC_LIVE_URL}/`;
 
 // const token = localStorage.getItem("authToken");
 
