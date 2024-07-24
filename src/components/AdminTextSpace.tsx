@@ -52,6 +52,7 @@ const AdminTextSpace = ({ inputData, setInputData, logoutLoading }: any) => {
 
       if (response?.data) {
         toast.success(response?.data?.messgage);
+        fetchData();
       }
       setLoading(false);
     } catch (error) {

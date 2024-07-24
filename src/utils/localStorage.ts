@@ -16,5 +16,15 @@ const removeLocalStorageItem = () => {
     localStorage.clear();
   }
 };
+const getOriginUrl = () => {
+  if (typeof window !== "undefined") {
+    return window.location.origin;
+  }
+};
 
-export { setLocalStorageItem, getLocalStorageItem, removeLocalStorageItem };
+export {
+  setLocalStorageItem,
+  getLocalStorageItem,
+  removeLocalStorageItem,
+  getOriginUrl,
+};

@@ -15,7 +15,7 @@ import { Flex } from "@chakra-ui/react";
 import { toast } from "react-toastify";
 
 import { useState, useEffect } from "react";
-import { getLocalStorageItem } from "@/utils/localStorage";
+import { getLocalStorageItem, getOriginUrl } from "@/utils/localStorage";
 import { useRouter } from "next/navigation";
 
 const SourceCard = ({ inputData }: any) => {
@@ -46,12 +46,9 @@ const SourceCard = ({ inputData }: any) => {
 
           {inputData && documentID && (
             <Flex>
-              <Link
-                href={`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}
-                isExternal
-              >
+              <Link href={`${getOriginUrl()}/chatbot/${documentID}`} isExternal>
                 <Text fontWeight="bold">
-                  {`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}
+                  {`${getOriginUrl()}/chatbot/${documentID}`}
                 </Text>
               </Link>
 
@@ -60,7 +57,7 @@ const SourceCard = ({ inputData }: any) => {
                 icon={<CopyIcon />}
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`
+                    `${getOriginUrl()}/chatbot/${documentID}`
                   );
                   toast.success("Text copied");
                 }}
