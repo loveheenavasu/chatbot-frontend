@@ -4,11 +4,10 @@ import AdminSideBar from "@/components/AdminSideBar";
 import AdminTextSpace from "@/components/AdminTextSpace";
 import FIlesCard from "@/components/FIlesCard";
 import WebsiteCard from "@/components/WebsiteCard";
-import { Box, Spinner } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
+import React, { useState } from "react";
 import styles from "../../chat/admin/admin.module.css";
 import SourceCard from "@/components/SourceCard";
-import { useRouter } from "next/navigation";
 
 const Admin = () => {
   const [activeButton, setActive] = useState<string>("Text");
