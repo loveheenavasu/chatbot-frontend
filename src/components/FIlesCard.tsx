@@ -69,7 +69,7 @@ const FIlesCard = () => {
 
   const handleUploadFile = async () => {
     try {
-      if (Object.keys(file)) {
+      if (!file.name) {
         toast.error("No file selected");
         return;
       }
