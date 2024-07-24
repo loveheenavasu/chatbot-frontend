@@ -1,6 +1,5 @@
 "use client";
 import {
-  AbsoluteCenter,
   Box,
   Button,
   ButtonGroup,
@@ -11,23 +10,21 @@ import {
   Divider,
   Flex,
   Heading,
-  Input,
   Spacer,
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../app/adminpanel/admin.module.css";
 import { MdOutlineFileUpload } from "react-icons/md";
-import axios from "axios";
 import axiosInstance from "@/utils/axiosInstance";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { toast } from "react-toastify";
 import { FileUploader } from "react-drag-drop-files";
 
 const FIlesCard = () => {
-  const [file, setFile] = useState({});
-  const [data, setData] = useState(null);
+  const [file, setFile] = useState<any>({});
+  const [data, setData] = useState<any>(null);
   const [loading, setIsLoading] = useState(true);
   const [deleteFileLoading, setDeleteFileLoading] = useState("");
   const [isFileUpload, setIsFileUpload] = useState(false);
@@ -72,7 +69,7 @@ const FIlesCard = () => {
 
   const handleUploadFile = async () => {
     try {
-      if (!file?.name) {
+      if (Object.keys(file)) {
         toast.error("No file selected");
         return;
       }
@@ -167,7 +164,7 @@ const FIlesCard = () => {
                   </Text>
                 )}
 
-                {data?.map((item) => {
+                {data?.map((item: any) => {
                   return (
                     <Flex
                       width={"80%"}
