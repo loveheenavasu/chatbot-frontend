@@ -29,7 +29,6 @@ const SourceCard = ({ inputData }: any) => {
     }
   }, [authToken]);
 
-
   return (
     <Box>
       <Card>
@@ -45,7 +44,7 @@ const SourceCard = ({ inputData }: any) => {
             </Button>
           )}
 
-          {inputData && (
+          {inputData && documentID && (
             <Flex>
               <Link
                 href={`${process.env.NEXT_PUBLIC_LIVE_URL}/chatbot/${documentID}`}

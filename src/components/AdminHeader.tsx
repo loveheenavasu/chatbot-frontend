@@ -17,10 +17,6 @@ import { removeLocalStorageItem } from "@/utils/localStorage";
 
 const AdminHeader = () => {
   const router = useRouter();
-
-  const pathname = usePathname();
-  console.log(pathname, "10238108301asdfasdf823");
-
   const handleLogout = async () => {
     try {
       const response = await axiosInstance.delete(`user/logout`);

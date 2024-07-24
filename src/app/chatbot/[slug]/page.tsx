@@ -24,7 +24,7 @@ const ChatBot = ({ params }: any) => {
       message: "Welcome to our Chatbot",
     },
   ]);
-  //http://localhost:3000/chatbot?id=7f00126e-0cbe-4f43-9042-300b271c90d5
+
   const [chatId, setChatId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const id = params.slug;

@@ -48,7 +48,6 @@ const LoginCard = () => {
 
   const authen = async (data: LoginData) => {
     try {
-      console.log("a2034802384203840283");
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/login`,
         data
@@ -64,7 +63,6 @@ const LoginCard = () => {
   };
 
   const responseMessage = (response: ResponseMessage) => {
-    console.log(response, "resonse");
     if (response.credential != null) {
       const USER_CREDENTIAL = jwtDecode(
         response.credential
