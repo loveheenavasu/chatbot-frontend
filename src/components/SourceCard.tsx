@@ -69,7 +69,7 @@ const SourceCard = ({ inputData, activeButton }: any) => {
               />
             </Flex>
           )}
-          {inputData && documentID && (
+          {inputData && documentID && activeButton !== "Files" && (
             <Flex>
               <Link href={`${getOriginUrl()}/chatbot/${documentID}`} isExternal>
                 <Text fontWeight="bold">

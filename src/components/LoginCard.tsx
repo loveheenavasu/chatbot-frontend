@@ -52,10 +52,10 @@ const LoginCard = () => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/login`,
         data
       );
-      const { socialToken, _id } = response.data;
-      Cookies.set("authToken", socialToken);
-      setLocalStorageItem("authToken", socialToken);
-      setLocalStorageItem("userId", _id);
+      const { accessToken, _id } = response.data;
+      Cookies.set("authToken", accessToken);
+      setLocalStorageItem("authToken", accessToken);
+    setLocalStorageItem("userId", _id);
       location.reload();
     } catch (error) {
       console.error(error, "Error during authentication");
