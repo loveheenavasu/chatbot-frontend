@@ -21,10 +21,16 @@ const getOriginUrl = () => {
     return window.location.origin;
   }
 };
+const removeParticularItemFromLocalStorage = (key: string) => {
+  if (typeof window !== "undefined") {
+    return localStorage.removeItem(key);
+  }
+};
 
 export {
   setLocalStorageItem,
   getLocalStorageItem,
   removeLocalStorageItem,
+  removeParticularItemFromLocalStorage,
   getOriginUrl,
 };

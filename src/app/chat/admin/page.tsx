@@ -49,7 +49,7 @@ const Admin = () => {
         </Box>
         <Box className={styles.adminCenterWrapper}>{renderCards()}</Box>
         <Box className={styles.adminRightWrapper}>
-          <SourceCard inputData={inputData} />
+          <SourceCard inputData={inputData} activeButton={activeButton} />
         </Box>
       </Box>
     </>

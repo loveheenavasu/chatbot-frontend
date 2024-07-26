@@ -22,15 +22,13 @@ const AdminTextSpace = ({ inputData, setInputData, logoutLoading }: any) => {
   const [isEditId, setIsEditId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [screenLoading, setscreenLoading] = useState<boolean>(false);
-
-  const fetchData = async () => {
+  const fetchData = async (documentId: any) => {
     try {
       setscreenLoading(true);
-      const userId = getLocalStorageItem("userId");
-      const response = await axiosInstance.get(`/user/text/${userId}`);
+      const response = await axiosInstance.get(
+        `/user/text${documentId ? `?documentId=${documentId}` : ""}`
+      );
       if (response.data) {
-        setLocalStorageItem("documentId", response.data.documentId);
-        // localStorage.setItem("documentId", response.data.documentId);
         setInputData(response?.data?.text);
         setIsEditId(response?.data?._id);
       }
@@ -41,18 +39,27 @@ const AdminTextSpace = ({ inputData, setInputData, logoutLoading }: any) => {
   };
 
   useEffect(() => {
-    fetchData();
+    const documentId = getLocalStorageItem("documentId");
+    fetchData(documentId);
   }, []);
   const handleAdd = async () => {
+    if (!inputData) {
+      toast.error("Please Enter the Text");
+      return;
+    }
     setLoading(true);
+
     try {
+      const documentId = getLocalStorageItem("documentId");
       const response = await axiosInstance.post(`/user/text`, {
         text: inputData,
+        documentId,
       });
 
       if (response?.data) {
+        setLocalStorageItem("documentId", response?.data?.data?.documentId);
         toast.success(response?.data?.messgage);
-        fetchData();
+        fetchData(response.data.data.documentId);
       }
       setLoading(false);
     } catch (error) {
@@ -62,6 +69,10 @@ const AdminTextSpace = ({ inputData, setInputData, logoutLoading }: any) => {
   };
 
   const handleUpdate = async () => {
+    if (!inputData) {
+      toast.error("Please Enter the Text");
+      return;
+    }
     setLoading(true);
     try {
       const response = await axiosInstance.patch(`/user/text`, {

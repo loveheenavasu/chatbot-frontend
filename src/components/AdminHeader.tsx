@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Heading,
-  IconButton,
-  Spacer,
-  Spinner,
-  Text,
-} from "@chakra-ui/react";
+import React from "react";
+import { Box, Heading, IconButton, Spacer, Text } from "@chakra-ui/react";
 import styles from "../app/adminpanel/admin.module.css";
 
 import axiosInstance from "@/utils/axiosInstance";
 import { toast } from "react-toastify";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { removeLocalStorageItem } from "@/utils/localStorage";
 
@@ -21,9 +14,9 @@ const AdminHeader = () => {
     try {
       const response = await axiosInstance.delete(`user/logout`);
       if (response?.data) {
-        router.push("/login");
         Cookies.remove("authToken");
         removeLocalStorageItem();
+        router.push("/login");
         toast.success(response.data.message);
       }
     } catch (error) {
@@ -34,8 +27,13 @@ const AdminHeader = () => {
     <Box>
       <Box className={styles.adminHeaderWrapper}>
         <Box className={styles.subheadingAdmin}>
-          <Heading fontSize="xl" fontWeight="bold">
-            Chat BOT
+          <Heading
+            fontSize="xl"
+            cursor={"pointer"}
+            fontWeight="bold"
+            onClick={() => router.push("/")}
+          >
+            ChatBot
           </Heading>
           <Spacer />
           <Box>

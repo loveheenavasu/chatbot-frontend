@@ -42,7 +42,7 @@ const LoginCard = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push("/chat/admin");
+      router.push("/");
     }
   }, [isLoggedIn]);
 
@@ -78,7 +78,7 @@ const LoginCard = () => {
       authen(newLoginData);
 
       if (newLoginData) {
-        router.push("/chat/admin");
+        router.push("/");
       }
     }
   };

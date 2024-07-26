@@ -16,11 +16,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "../app/adminpanel/admin.module.css";
-import { MdOutlineFileUpload } from "react-icons/md";
 import axiosInstance from "@/utils/axiosInstance";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { toast } from "react-toastify";
 import { FileUploader } from "react-drag-drop-files";
+import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
 
 const FIlesCard = () => {
   const [file, setFile] = useState<any>({});
@@ -32,12 +32,13 @@ const FIlesCard = () => {
   const handleUpload = (file: any) => {
     setFile(file);
   };
-
-  const fetchData = async () => {
+  const fetchData = async (documentId: any) => {
     try {
       setIsLoading(true);
       const response = await axiosInstance.get(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/user/files`
+        `${process.env.NEXT_PUBLIC_BASE_URL}/user/files${
+          documentId ? `?documentId=${documentId}` : ""
+        }`
       );
       setData(response?.data?.data);
       setIsLoading(false);
@@ -48,10 +49,13 @@ const FIlesCard = () => {
     }
   };
   useEffect(() => {
-    fetchData();
+    const documentId = getLocalStorageItem("documentId");
+    fetchData(documentId);
   }, []);
   const handleDeleteFile = async (id: string, docNo: number) => {
     try {
+      const id = getLocalStorageItem("documentId");
+
       const response = await axiosInstance.delete(
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/files/?documentId=${id}&docNo=${docNo}`
       );
@@ -60,7 +64,7 @@ const FIlesCard = () => {
       }
 
       setDeleteFileLoading("");
-      fetchData();
+      fetchData(id);
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
       setDeleteFileLoading("");
@@ -75,19 +79,23 @@ const FIlesCard = () => {
       }
       setIsFileUpload(true);
       const token = localStorage.getItem("authToken");
+      const id = getLocalStorageItem("documentId");
+
       const headers = new Headers();
       headers.append("token", `Bearer ${token}`);
       const formData = new FormData();
       formData.append("file", file as any);
+      formData.append("documentId", id as any);
 
       const response = await axiosInstance.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/user/upload`,
         formData
       );
       if (response.data) {
+        setLocalStorageItem("documentId", response.data?.data.documentId);
         toast.success(response?.data?.message);
         setFile({});
-        fetchData();
+        fetchData(response.data?.data.documentId);
       }
 
       setIsFileUpload(false);
@@ -115,12 +123,14 @@ const FIlesCard = () => {
           pt={"0px !important"}
           width={"100%"}
         >
-          <FileUploader
-            handleChange={handleUpload}
-            name="file"
-            types={fileTypes}
-            onDrop={handleUpload}
-          />
+          <Box className="file-uploader-class">
+            <FileUploader
+              handleChange={handleUpload}
+              name="file"
+              types={fileTypes}
+              onDrop={handleUpload}
+            />
+          </Box>
         </CardBody>
 
         <Box
@@ -157,11 +167,13 @@ const FIlesCard = () => {
           <Box>
             {!loading ? (
               <>
-                <Divider padding={1} />
                 {data?.length > 0 && (
-                  <Text fontWeight={"bold"} textAlign={"center"} padding={4}>
-                    Already Selected File
-                  </Text>
+                  <>
+                    <Text fontWeight={"bold"} textAlign={"center"} padding={4}>
+                      Already Selected File
+                    </Text>
+                    <Divider padding={2} />
+                  </>
                 )}
 
                 {data?.map((item: any) => {

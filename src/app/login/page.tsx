@@ -12,7 +12,7 @@ const Login = () => {
   const authToken = getLocalStorageItem("authToken");
   useEffect(() => {
     if (authToken) {
-      router.push("/chat/admin");
+      router.push("/");
     }
   }, [authToken]);
 
