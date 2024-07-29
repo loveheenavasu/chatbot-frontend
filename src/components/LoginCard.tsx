@@ -1,6 +1,13 @@
 "use client";
 
-import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "../app/login/login.module.css";
 import { jwtDecode } from "jwt-decode";
@@ -10,6 +17,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
+import axiosInstance from "@/utils/axiosInstance";
+import { toast } from "react-toastify";
 
 type LoginData = {
   email: string;
@@ -33,11 +42,11 @@ interface CustomJwtPayload extends JwtPayload {
 
 const LoginCard = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
-
   const isLoggedIn = getLocalStorageItem("authToken");
 
   useEffect(() => {
@@ -49,13 +58,14 @@ const LoginCard = () => {
   const authen = async (data: LoginData) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/user/login`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/user/social-login
+`,
         data
       );
       const { accessToken, _id } = response.data;
       Cookies.set("authToken", accessToken);
       setLocalStorageItem("authToken", accessToken);
-    setLocalStorageItem("userId", _id);
+      setLocalStorageItem("userId", _id);
       location.reload();
     } catch (error) {
       console.error(error, "Error during authentication");
@@ -85,16 +95,34 @@ const LoginCard = () => {
   const errorMessage = (error?: string) => {
     console.log(error, "error");
   };
+  const handleSubmit = async (e: any) => {
+    try {
+      e.preventDefault();
+      setLoading(true);
+      const response = await axiosInstance.post("/user/login", loginData);
+      if (response.status === 200) {
+        Cookies.set("authToken", response?.data?.data?.accessToken);
+        setLocalStorageItem("authToken", response?.data?.data?.accessToken);
+        toast.success(response.data?.message);
+        setLoading(false);
+        router.push("/");
+        location.reload();
+      }
+    } catch (error: any) {
+      toast.error(error.response?.data?.message);
+      setLoading(false);
+    }
+  };
 
   return (
     <Box className={styles.cardContainer}>
-      <FormControl id="username" mb={4}>
+      <FormControl id="username" mb={4} onSubmit={handleSubmit}>
         <FormLabel>Username</FormLabel>
         <Input
           type="text"
-          value={loginData?.username}
+          value={loginData?.email}
           onChange={(e) =>
-            setLoginData({ ...loginData, username: e.target.value })
+            setLoginData({ ...loginData, email: e.target.value })
           }
         />
       </FormControl>
@@ -108,12 +136,52 @@ const LoginCard = () => {
           }
         />
       </FormControl>
-      <Button colorScheme="cyan" color={"white"} width="full">
+      <Button
+        colorScheme="cyan"
+        color={"white"}
+        width="full"
+        isLoading={loading}
+        onClick={handleSubmit}
+      >
         Login
       </Button>
       <Box className={styles.googlelogin}>
         <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
       </Box>
+      <Text
+        cursor={"pointer"}
+        as="b"
+        p={4}
+        display={"flex"}
+        justifyContent={"center"}
+      >
+        Don't have an Account?{" "}
+        <Text
+          color="#0bc5ea"
+          as="b"
+          marginLeft={1}
+          onClick={() => router.push("/signUp")}
+        >
+          Sign up
+        </Text>
+      </Text>
+      <Text
+        cursor={"pointer"}
+        as="b"
+        p={1}
+        display={"flex"}
+        justifyContent={"center"}
+      >
+        Forgotten Your password ?{" "}
+        <Text
+          color="#0bc5ea"
+          as="b"
+          marginLeft={1}
+          onClick={() => router.push("/forgetpassword")}
+        >
+          Forget Password
+        </Text>
+      </Text>
     </Box>
   );
 };

@@ -14,11 +14,9 @@ import { toast } from "react-toastify";
 import axiosInstance from "@/utils/axiosInstance";
 import { useRouter } from "next/navigation";
 import { setLocalStorageItem } from "@/utils/localStorage";
-export default function Signup() {
+export default function ForgetPasswordCard() {
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
-    confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -32,27 +30,25 @@ export default function Signup() {
   const handleSubmit = async (e: any) => {
     try {
       e.preventDefault();
-      if (!formData.password || !formData.email) {
-        toast.error("Please fill all the fields");
+      if (!formData.email) {
+        toast.error("please enter the email");
         return;
       }
-      if (formData.password !== formData.confirmPassword) {
-        toast.error("Please enter same password");
-        return;
-      }
+
       setLoading(true);
-      const data = { email: formData.email, password: formData.password };
-      const response = await axiosInstance.post("user/signup", data);
+      const response = await axiosInstance.post("user/forgot", {
+        email: formData.email,
+      });
       toast.success(response?.data?.message);
       if (response.status === 200) {
         setLocalStorageItem(
           "verifyOtpToken",
           response?.data?.data?.accessToken
         );
-        router.push(`/otp?email=${formData.email}`);
+        router.push(`/otp?email=${formData.email}&isForget=true`);
       }
     } catch (error: any) {
-      toast.error(error.response.data.errorMessage);
+      toast.error(error.response.data.message);
       setLoading(false);
     }
   };
@@ -63,7 +59,7 @@ export default function Signup() {
         <FormLabel>Email</FormLabel>
         <Input type="text" value={formData.email} onChange={handleChange} />
       </FormControl>
-      <FormControl id="password" mb={6}>
+      {/* <FormControl id="password" mb={6}>
         <FormLabel>Password</FormLabel>
         <Input
           type="password"
@@ -78,7 +74,7 @@ export default function Signup() {
           value={formData.confirmPassword}
           onChange={handleChange}
         />
-      </FormControl>
+      </FormControl> */}
 
       <Button
         colorScheme="cyan"
@@ -87,7 +83,7 @@ export default function Signup() {
         type="submit"
         isLoading={loading}
       >
-        Send Otp
+        Forget password
       </Button>
       <Text
         cursor={"pointer"}

@@ -1,21 +1,26 @@
 "use client";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import React from "react";
-import styles from "./signup.module.css";
-import Signup from "@/components/Signup";
+import styles from "./otp.module.css";
+import Image from "next/image";
+import Otp from "@/components/Otp";
 
-const signup = () => {
+const page = () => {
   return (
     <Box className={styles.loginContainer}>
       <Box className={styles.leftlogin}>
-        <Signup />
+        <Text as="b" p={3} fontSize={36} color={"white"}>
+          Enter verification code
+        </Text>
+        <Otp />
       </Box>
       <Box className={styles.rightlogin}>
         <Box className={styles.imageWrapper}>
           <Image
             className={styles.mainPhoto}
             objectFit="cover"
-            src="/signup.png"
+            layout="fill"
+            src="/chatbot2.jpg"
             alt="mainPhoto"
           />
         </Box>
@@ -24,4 +29,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default page;

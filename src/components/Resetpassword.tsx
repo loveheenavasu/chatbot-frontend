@@ -9,19 +9,23 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import styles from "../app/signUp/signup.module.css";
+import styles from "../app/resetPassword/resetpassword.module.css";
 import { toast } from "react-toastify";
 import axiosInstance from "@/utils/axiosInstance";
 import { useRouter } from "next/navigation";
-import { setLocalStorageItem } from "@/utils/localStorage";
-export default function Signup() {
+import {
+  getLocalStorageItem,
+  removeLocalStorageItem,
+} from "@/utils/localStorage";
+
+export default function Resetpassword() {
   const [formData, setFormData] = useState({
-    email: "",
     password: "",
     confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const uniqueCode = getLocalStorageItem("uniqueCode");
   const handleChange = (e: any) => {
     const { id, value } = e.target;
     setFormData((prevState) => ({
@@ -32,37 +36,32 @@ export default function Signup() {
   const handleSubmit = async (e: any) => {
     try {
       e.preventDefault();
-      if (!formData.password || !formData.email) {
-        toast.error("Please fill all the fields");
-        return;
-      }
       if (formData.password !== formData.confirmPassword) {
-        toast.error("Please enter same password");
-        return;
+        return toast.error("please enter the same password");
+      }
+      if (formData.password.length < 4) {
+        return toast.error("your password is too small ");
       }
       setLoading(true);
-      const data = { email: formData.email, password: formData.password };
-      const response = await axiosInstance.post("user/signup", data);
+      const response = await axiosInstance.post("user/reset", {
+        uniqueCode,
+        password: formData.password,
+      });
       toast.success(response?.data?.message);
       if (response.status === 200) {
-        setLocalStorageItem(
-          "verifyOtpToken",
-          response?.data?.data?.accessToken
-        );
-        router.push(`/otp?email=${formData.email}`);
+        removeLocalStorageItem();
+        router.push(`/login`);
+
+        setLoading(true);
       }
     } catch (error: any) {
-      toast.error(error.response.data.errorMessage);
+      toast.error(error.response.data.message);
       setLoading(false);
     }
   };
 
   return (
     <Box className={styles.cardContainer} as="form" onSubmit={handleSubmit}>
-      <FormControl id="email" mb={4}>
-        <FormLabel>Email</FormLabel>
-        <Input type="text" value={formData.email} onChange={handleChange} />
-      </FormControl>
       <FormControl id="password" mb={6}>
         <FormLabel>Password</FormLabel>
         <Input
@@ -87,9 +86,9 @@ export default function Signup() {
         type="submit"
         isLoading={loading}
       >
-        Send Otp
+        Confirm
       </Button>
-      <Text
+      {/* <Text
         cursor={"pointer"}
         as="b"
         p={4}
@@ -105,7 +104,7 @@ export default function Signup() {
         >
           Login{" "}
         </Text>
-      </Text>
+      </Text> */}
     </Box>
   );
 }

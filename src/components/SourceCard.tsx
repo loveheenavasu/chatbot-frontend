@@ -23,7 +23,6 @@ const SourceCard = ({ inputData, activeButton }: any) => {
   const router = useRouter();
   const documentID = getLocalStorageItem("documentId");
   const authToken = getLocalStorageItem("authToken");
-  console.log(activeButton, "423424223423");
   useEffect(() => {
     if (!authToken) {
       router.push("/login");
