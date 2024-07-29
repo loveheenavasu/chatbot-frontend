@@ -69,7 +69,7 @@ export default function Otp() {
     }
   };
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <OtpInput
         value={otp}
         onChange={setOtp}
@@ -123,6 +123,6 @@ export default function Otp() {
           Resend OTP
         </Text>
       </Text>
-    </Suspense>
+    </>
   );
 }
