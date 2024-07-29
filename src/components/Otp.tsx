@@ -2,7 +2,7 @@ import axiosInstance from "@/utils/axiosInstance";
 import { getLocalStorageItem, setLocalStorageItem } from "@/utils/localStorage";
 import { Box, Button, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import OtpInput from "react-otp-input";
 import { toast } from "react-toastify";
 import { useSearchParams } from "next/navigation";
@@ -69,7 +69,7 @@ export default function Otp() {
     }
   };
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <OtpInput
         value={otp}
         onChange={setOtp}
@@ -123,6 +123,6 @@ export default function Otp() {
           Resend OTP
         </Text>
       </Text>
-    </>
+    </Suspense>
   );
 }
