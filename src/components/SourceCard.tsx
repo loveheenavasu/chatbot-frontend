@@ -25,7 +25,7 @@ const SourceCard = ({ inputData, activeButton }: any) => {
   const authToken = getLocalStorageItem("authToken");
   useEffect(() => {
     if (!authToken) {
-      router.push("/login");
+      router.push("/login");  
     }
   }, [authToken]);
 
